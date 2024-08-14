@@ -4,7 +4,7 @@ import Link from "next/link";
 const LoginTemplate3 = () => {
   return (
     <div className="w-full h-screen login3BG bg-cover flex justify-center items-center">
-      <div className="w-[90%] md:w-[30%] h-[80%] border-2 border-gray-400 flex justify-center items-center rounded-3xl bg-[linear-gradient(164.72deg,rgba(255,255,255,0)_6.23%,#065AD8_66.54%)] py-4">
+      <div className="w-[90%] md:w-[50%] xl:w-[30%] h-[80%] border-2 border-gray-400 flex justify-center items-center rounded-3xl bg-[linear-gradient(164.72deg,rgba(255,255,255,0)_6.23%,#065AD8_66.54%)] py-4">
         <div className="flex flex-col items-center justify-center h-full text-center px-4">
           <p className=" text-white text-2xl md:text-4xl font-bold my-4">
             Hello There!
