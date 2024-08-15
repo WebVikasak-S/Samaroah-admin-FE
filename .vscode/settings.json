@@ -1,0 +1,12 @@
+{
+  "eslint.workingDirectories": [
+    // "./apps",
+    // "./apps/web",
+    // "./apps/docs",
+    // "./packages",
+    // "./packages/ui",
+    // "./packages/config-eslint",
+    // "./packages/config-tailwind",
+    // "./packages/config-typescript"
+  ]
+}

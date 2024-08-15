@@ -22,33 +22,32 @@ const EmailPassTemplateScreen2 = () => {
           We are very happy to see you again!
         </span>
         <div className="flex items-center justify-center gap-3 w-full text-sm">
-          <div className="flex items-center gap-4 bg-[#ffffffec] border border-white rounded-xl px-5 py-3 w-2/5">
+          <div className="flex items-center gap-4 bg-[#ffffffec] border border-white rounded-xl px-5 py-3 w-max">
             <img src="/assets/google.png" alt="google" className="w-5 h-5" />
             <span>Sign in with Google</span>
           </div>
-          <div className="flex items-center gap-4 bg-[#ffffffe9] border border-white rounded-xl px-5 py-3 w-2/5">
+          <div className="flex items-center gap-4 bg-[#ffffffe9] border border-white rounded-xl px-5 py-3 w-max">
             <img src="/assets/twitter.png" alt="twitter" className="w-5 h-5" />
             <span>Sign in with X</span>
           </div>
         </div>
-
-        <div className="relative w-full ">
+        <div className="flex items-center justify-between gap-3 w-full text-sm">
+          <div className="flex-1 border-t border-black" />
+          <div className="flex-1">or continue with email</div>
+          <div className="flex-1 border-t border-black" />
+        </div>
+        <div className="relative w-full bg-[#ffffffe9] border border-white rounded-xl">
           <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-            <svg
-              className="w-4 h-4 text-gray-500 dark:text-gray-400"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 20 16"
-            >
-              <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
-              <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
-            </svg>
+            <img
+              src="/assets/email.png"
+              alt="email"
+              className="w-5 h-5 text-gray-500 dark:text-gray-400"
+            />
           </div>
           <input
             type="email"
             id="input-email"
-            className="block w-full ps-10 p-2.5 border text-sm rounded-lg"
+            className="block w-full ps-11 p-3.5 text-sm rounded-lg"
             placeholder="Email Address"
           />
         </div>
@@ -57,7 +56,7 @@ const EmailPassTemplateScreen2 = () => {
         </button>
         <div className="text-lg text-[#989898]">
           Don't have an account ?{" "}
-          <span className="text-[#3D64FF]">Register Now</span>
+          <span className="text-[#3D64FF] underline">Register Now</span>
         </div>
       </div>
     </div>
