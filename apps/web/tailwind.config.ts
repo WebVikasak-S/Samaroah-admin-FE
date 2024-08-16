@@ -7,6 +7,9 @@ const config: Pick<Config, "content" | "presets" | any> = {
   content: ["./src/app/**/*.tsx"],
   theme: {
     extend: {
+      // backgroundImage: {
+      //   't2-bg': "url('../public/assets/t2-bg.png')",
+      // },
       colors: {
         primary: {
           DEFAULT: "#277FE7", // You can replace this with your primary color

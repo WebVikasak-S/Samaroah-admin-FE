@@ -1,75 +1,63 @@
-import Link from "next/link";
 import React from "react";
 
 const EmailPassTemplateScreen2 = () => {
   return (
-    <div className="min-h-screen flex flex-col-reverse lg:flex-row items-center justify-between ">
-      <div className=" flex justify-around bg-white w-full mx-4 lg:mx-0 lg:w-1/2 p-6 lg:p-0">
-        <div className=" md:w-[80%] lg:w-[70%]">
-          <h2 className="text-4xl text-center lg:text-left lg:text-5xl font-bold mb-4 text-secondary">
-            Welcome Back!
-          </h2>
-          <p className=" text-[#9D88B2] mb-4 text-lg font-normal text-center lg:text-left ">
-            Please enter your email address to get OTP
-          </p>
-          <form className="space-y-6 my-8">
-            <div>
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="w-full px-4 py-2 my-2 border rounded-full focus:outline-none focus:border-blue-500"
-              />
-              <input
-                type="password"
-                placeholder="Email Password"
-                className="w-full px-4 py-2 my-2 border rounded-full focus:outline-none focus:border-blue-500"
-              />
-            </div>
-            <button
-              type="button"
-              className="w-full bg-[#08E59C] text-white py-2 rounded-full hover:bg-[#00B277] transition duration-300"
-            >
-              SUBMIT
-            </button>
-            <div className="flex items-center">
-              <span className="mx-2 text-[#9D88B2]">Or Login with</span>
-              <div className="flex justify-center space-x-4">
-                <button className="p-2 bg-gray-200 rounded-full hover:bg-gray-300 transition duration-300">
-                  <img
-                    src="../../../public/assets/google1.svg"
-                    alt="Google"
-                    className="w-6 h-6"
-                  />
-                </button>
-                <button className="p-2 bg-gray-200 rounded-full hover:bg-gray-300 transition duration-300">
-                  <img src="/apple-icon.png" alt="Apple" className="w-6 h-6" />
-                </button>
-              </div>
-            </div>
-            <div className="border border-[#00337C] p-2 rounded-full text-center text-[#071952] mt-6">
-              <p className="font-medium text-md lg:text-lg">
-                Don't have an account?{" "}
-                <a href="#" className="underline font-bold">
-                  Sign up
-                </a>
-              </p>
-            </div>
-          </form>
+    <div className="flex md:flex-row items-center emailPassBg2 bg-cover w-screen h-screen justify-between">
+      <div className="md:w-3/6 h-4/5 flex flex-col justify-between items-start bg-[#ffffffc3] border-2 border-white rounded-tr-3xl rounded-br-3xl pl-8 pr-20 py-12">
+        <div className="smLogo bg-cover w-[179px] h-[44px]" />
+        <div className="font-black text-6xl flex flex-col">
+          <span className="text-blue-600 ">Machine.</span>
+          <span className="text-black">Intelligence.</span>
+          <span className="text-blue-600">Symposium.</span>
         </div>
+        <span>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione nisi
+          error placeat hic esse, possimus adipisci temporibus voluptates
+          consequatur architecto, delectus atque magnam.
+        </span>
       </div>
-      <div className="bg-primary lg:min-h-screen lg:ml-8 py-12 px-4 md:px-24 flex flex-col justify-center items-center text-center mx-auto lg:text-left lg:w-1/2 lg:mx-0 lg:px-16 rounded-bl-[12%] rounded-br-[12%] md:rounded-bl-[20%] md:rounded-br-[20%] lg:rounded-tl-[12%] lg:rounded-br-[0%]">
-        <h1 className="text-4xl lg:text-6xl font-extrabold text-white">
-          5th Medical Conference{" "}
-          <span className="text-4xl lg:text-6xl font-extrabold text-green-500">
-            Health <br />& Safety{" "}
-            <span className="text-white text-4xl lg:text-6xl">2024</span>
-          </span>
-        </h1>
-        <p className="text-white mt-8 font-normal text-[21px] leading-8">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s.
-        </p>
+      <div className="md:w-2/5 h-4/5 flex flex-col justify-between py-12 items-center px-12 m-auto bg-[#edededc7] border-2 border-white rounded-3xl">
+        <span className="text-4xl text-black font-extrabold ">Hello There</span>
+        <span className="text-sm text-[#989898]">
+          We are very happy to see you again!
+        </span>
+        <div className="flex items-center justify-center gap-3 w-full text-sm">
+          <div className="flex items-center gap-4 bg-[#ffffffec] border border-white rounded-xl px-5 py-3 w-max">
+            <img src="/assets/google.png" alt="google" className="w-5 h-5" />
+            <span>Sign in with Google</span>
+          </div>
+          <div className="flex items-center gap-4 bg-[#ffffffe9] border border-white rounded-xl px-5 py-3 w-max">
+            <img src="/assets/twitter.png" alt="twitter" className="w-5 h-5" />
+            <span>Sign in with X</span>
+          </div>
+        </div>
+        <div className="flex items-center justify-between gap-3 w-full text-sm">
+          <div className="flex-1 border-t border-black" />
+          <div className="flex-1">or continue with email</div>
+          <div className="flex-1 border-t border-black" />
+        </div>
+        <div className="relative w-full bg-[#ffffffe9] border border-white rounded-xl">
+          <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+            <img
+              src="/assets/email.png"
+              alt="email"
+              className="w-5 h-5 text-gray-500 dark:text-gray-400"
+            />
+          </div>
+          <input
+            type="email"
+            id="input-email"
+            className="block w-full ps-11 p-3.5 text-sm rounded-lg"
+            placeholder="Email Address"
+          />
+        </div>
+        <button className="bg-blue-600 flex items-center justify-center w-full p-5 text-white rounded-2xl text-lg font-black">
+          GET OTP
+        </button>
+        <div className="text-lg text-[#989898]">
+          Don't have an account ?{" "}
+          <span className="text-[#3D64FF] underline">Register Now</span>
+        </div>
       </div>
     </div>
   );
