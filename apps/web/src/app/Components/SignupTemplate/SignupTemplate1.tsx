@@ -1,20 +1,29 @@
-import Link from "next/link";
 import React from "react";
 
-const EmailPassTemplateScreen1 = (props: any) => {
+const SignupTemplate1 = (props: any) => {
   const { view, setView } = props;
   return (
     // <div className="min-h-screen flex flex-col-reverse lg:flex-row items-center justify-between ">
     <div className=" flex justify-around bg-white w-full mx-4 lg:mx-0 lg:w-1/2 p-6 lg:p-0">
       <div className=" md:w-[80%] lg:w-[70%]">
         <h2 className="text-4xl text-center lg:text-left lg:text-5xl font-bold mb-4 text-secondary">
-          Welcome Back!
+          Create an account!
         </h2>
         <p className=" text-[#9D88B2] mb-4 text-lg font-normal text-center lg:text-left ">
-          Please enter your email address to get OTP
+          Fill the quick steps to Sign up in SamaRoah
         </p>
         <form className="space-y-6 my-8">
           <div>
+            <input
+              type="text"
+              placeholder="Full Name"
+              className="w-full px-4 py-2 my-2 border rounded-full focus:outline-none focus:border-blue-500"
+            />
+            <input
+              type="phone"
+              placeholder="Mobile Number"
+              className="w-full px-4 py-2 my-2 border rounded-full focus:outline-none focus:border-blue-500"
+            />
             <input
               type="email"
               placeholder="Email Address"
@@ -28,9 +37,10 @@ const EmailPassTemplateScreen1 = (props: any) => {
           </div>
           <button
             type="button"
+            onClick={() => setView("otp")}
             className="w-full bg-[#08E59C] text-white py-2 rounded-full hover:bg-[#00B277] transition duration-300"
           >
-            SUBMIT
+            SIGN UP
           </button>
           <div className="flex items-center">
             <span className="mx-2 text-[#9D88B2]">Or Login with</span>
@@ -52,10 +62,10 @@ const EmailPassTemplateScreen1 = (props: any) => {
               Don't have an account?{" "}
               <a
                 href="#"
-                onClick={() => setView("signup")}
+                onClick={() => setView("login")}
                 className="underline font-bold"
               >
-                Sign up
+                Sign in
               </a>
             </p>
           </div>
@@ -80,4 +90,4 @@ const EmailPassTemplateScreen1 = (props: any) => {
   );
 };
 
-export default EmailPassTemplateScreen1;
+export default SignupTemplate1;

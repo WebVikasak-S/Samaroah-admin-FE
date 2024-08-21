@@ -1,8 +1,8 @@
 import React from "react";
-import SignupTemplate2 from "../Components/SignupTemplate/SignupTemplate2";
+import SignupTemplate1 from "../Components/SignupTemplate/SignupTemplate1";
 
 const page = () => {
-  return <SignupTemplate2 />;
+  return <SignupTemplate1 />;
 };
 
 export default page;
