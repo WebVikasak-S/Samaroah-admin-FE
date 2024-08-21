@@ -1,6 +1,148 @@
-import React from "react";
+"use client";
+
+import React, { useRef, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const EmailPassTemplateScreen2 = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams()
+  const inputOtp = searchParams.get('input-otp')
+  const register = searchParams.get('register')
+  const [otp, setOtp] = useState(Array(6).fill(""));
+
+  const inputs = useRef<(HTMLInputElement | null)[]>([]);
+
+  const handleOtpChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
+    const { value } = e.target;
+    // Only allow single digit input
+    if (value.match(/^\d$/)) {
+      const newOtp = [...otp];
+      newOtp[index] = value;
+      setOtp(newOtp);
+      // Move focus to the next input
+      if (index < length - 1 && inputs && inputs.current) {
+        inputs.current[index + 1]?.focus();
+      }
+    }
+    // Move focus to previous input on backspace
+    if (value === "" && index > 0 && inputs && inputs.current) {
+      inputs.current[index - 1]?.focus();
+    }
+  };
+
+  const getLoginScreen = () => (
+    <>
+      <span className="text-4xl text-black font-extrabold ">Hello There</span>
+      <span className="text-sm text-[#989898]">
+        We are very happy to see you again!
+      </span>
+      <div className="flex items-center justify-center gap-3 w-full text-sm">
+        <div className="flex items-center gap-4 bg-[#ffffffec] border border-white rounded-xl px-5 py-3 w-max">
+          <img src="/assets/google.png" alt="google" className="w-5 h-5" />
+          <span>Sign in with Google</span>
+        </div>
+        <div className="flex items-center gap-4 bg-[#ffffffe9] border border-white rounded-xl px-5 py-3 w-max">
+          <img src="/assets/twitter.png" alt="twitter" className="w-5 h-5" />
+          <span>Sign in with X</span>
+        </div>
+      </div>
+      <div className="flex items-center justify-between gap-3 w-full text-sm">
+        <div className="flex-1 border-t border-black" />
+        <div className="flex-1">or continue with email</div>
+        <div className="flex-1 border-t border-black" />
+      </div>
+      <div className="relative w-full bg-[#ffffffe9] border border-white rounded-xl">
+        <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+          <img
+            src="/assets/email.png"
+            alt="email"
+            className="w-5 h-5 text-gray-500 dark:text-gray-400"
+          />
+        </div>
+        <input
+          type="email"
+          id="input-email"
+          className="block w-full ps-11 p-3.5 text-sm rounded-lg"
+          placeholder="Email Address"
+        />
+      </div>
+      <button
+        className="bg-blue-600 flex items-center justify-center w-full p-5 text-white rounded-2xl text-lg font-black"
+        onClick={() => router.push("/EmailPass?input-otp=true")}
+      >
+        GET OTP
+      </button>
+      <div className="text-lg text-[#989898]">
+        Don't have an account ?{" "}
+        <span className="text-[#3D64FF] underline" onClick={() => router.push("/EmailPass?register=true")}>
+          Register Now
+        </span>
+      </div>
+    </>
+  );
+
+  const getOtpScreen = () => (
+    <>
+      <span className="text-4xl text-black font-extrabold ">
+        Verify your account
+      </span>
+      <span className="text-sm text-[#989898]">
+        Please enter the verification code sent to your email
+      </span>
+      <div className="flex flex-col gap-6 w-full">
+        <div className="flex gap-5 w-full items-center justify-between px-6">
+          {[1, 2, 3, 4, 5, 6].map((item, index) => (
+            <input
+              key={item}
+              type="number"
+              name={item.toString()}
+              id="input-email"
+              className="block w-[50px] h-[50px] text-sm rounded-lg"
+              onChange={(e) => handleOtpChange(e, index)}
+              ref={(el) => {
+                if (inputs) {
+                  inputs.current[index] = el;
+                }
+              }}
+            />
+          ))}
+        </div>
+      </div>
+    </>
+  );
+
+  const getRegisterScreen = () => (
+    <>
+      <span className="text-4xl text-black font-extrabold ">Hello There</span>
+      <span className="text-sm text-[#989898]">
+        We are very happy to see you again!
+      </span>
+      <div className="flex items-center justify-center gap-3 w-full text-sm">
+        <div className="flex items-center gap-4 bg-[#ffffffec] border border-white rounded-xl px-5 py-3 w-max">
+          <img src="/assets/google.png" alt="google" className="w-5 h-5" />
+          <span>Sign in with Google</span>
+        </div>
+        <div className="flex items-center gap-4 bg-[#ffffffe9] border border-white rounded-xl px-5 py-3 w-max">
+          <img src="/assets/twitter.png" alt="twitter" className="w-5 h-5" />
+          <span>Sign in with X</span>
+        </div>
+      </div>
+    </>
+  );
+
+  const getSubScreen = () => {
+    if (register) {
+      return getRegisterScreen();
+    } else if (inputOtp) {
+      return getOtpScreen();
+    } else {
+      return getLoginScreen();
+    }
+  };
+
   return (
     <div className="flex md:flex-row items-center emailPassBg2 bg-cover w-screen h-screen justify-between">
       <div className="md:w-3/6 h-4/5 flex flex-col justify-between items-start bg-[#ffffffc3] border-2 border-white rounded-tr-3xl rounded-br-3xl pl-8 pr-20 py-12">
@@ -17,47 +159,7 @@ const EmailPassTemplateScreen2 = () => {
         </span>
       </div>
       <div className="md:w-2/5 h-4/5 flex flex-col justify-between py-12 items-center px-12 m-auto bg-[#edededc7] border-2 border-white rounded-3xl">
-        <span className="text-4xl text-black font-extrabold ">Hello There</span>
-        <span className="text-sm text-[#989898]">
-          We are very happy to see you again!
-        </span>
-        <div className="flex items-center justify-center gap-3 w-full text-sm">
-          <div className="flex items-center gap-4 bg-[#ffffffec] border border-white rounded-xl px-5 py-3 w-max">
-            <img src="/assets/google.png" alt="google" className="w-5 h-5" />
-            <span>Sign in with Google</span>
-          </div>
-          <div className="flex items-center gap-4 bg-[#ffffffe9] border border-white rounded-xl px-5 py-3 w-max">
-            <img src="/assets/twitter.png" alt="twitter" className="w-5 h-5" />
-            <span>Sign in with X</span>
-          </div>
-        </div>
-        <div className="flex items-center justify-between gap-3 w-full text-sm">
-          <div className="flex-1 border-t border-black" />
-          <div className="flex-1">or continue with email</div>
-          <div className="flex-1 border-t border-black" />
-        </div>
-        <div className="relative w-full bg-[#ffffffe9] border border-white rounded-xl">
-          <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-            <img
-              src="/assets/email.png"
-              alt="email"
-              className="w-5 h-5 text-gray-500 dark:text-gray-400"
-            />
-          </div>
-          <input
-            type="email"
-            id="input-email"
-            className="block w-full ps-11 p-3.5 text-sm rounded-lg"
-            placeholder="Email Address"
-          />
-        </div>
-        <button className="bg-blue-600 flex items-center justify-center w-full p-5 text-white rounded-2xl text-lg font-black">
-          GET OTP
-        </button>
-        <div className="text-lg text-[#989898]">
-          Don't have an account ?{" "}
-          <span className="text-[#3D64FF] underline">Register Now</span>
-        </div>
+        {getSubScreen()}
       </div>
     </div>
   );
